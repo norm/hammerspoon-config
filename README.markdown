@@ -23,3 +23,9 @@ edges.
 Hitting Function-Command-Left (Command-Home) starts the resize to the left
 mode, where up/down/left/right will resize the window from the top/left
 edges.
+
+## `init.lua`
+
+As each computer I use this on may have subtly different `mover`
+requirements, I create `init.lua` as a symlink to the right
+`$HOSTNAME.lua` file on installation.
