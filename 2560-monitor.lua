@@ -32,3 +32,7 @@ mover:bind('',      'y', function() resize_to(256,  23, 2048, 1440) end )
 
 -- Things
 mover:bind('',      't', function() resize_to(132,  23, 908, 1440) end )
+
+-- screenshot browsers
+mover:bind('',      's', function() resize_to(880, 420, 800,   600) end )
+mover:bind('shift', 's', function() resize_to(0,    23, 1024,  768) end )
