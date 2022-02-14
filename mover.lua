@@ -155,6 +155,7 @@ size_right:bind('alt',   'down',   function() resize_right(0, 100)    end )
 size_right:bind('cmd',   'down',   function() resize_right(0, 10000)  end )
 size_right:bind('',      '=',      function() center()                end )
 size_right:bind('shift', '=',      function() maximise()              end )
+size_right:bind('',      'p',      function() debug_position()        end )
 
 
 function size_left:entered() 
@@ -186,3 +187,4 @@ size_left:bind('',      'down',   function() resize_left(0, -10)      end )
 size_left:bind('alt',   'down',   function() resize_left(0, -100)     end )
 size_left:bind('',      '=',      function() center()                 end )
 size_left:bind('shift', '=',      function() maximise()               end )
+size_left:bind('',      'p',      function() debug_position()         end )
