@@ -1,5 +1,8 @@
 require "mover"
 
+-- reserved for laptop-only movement:
+-- z, x, c, v, b, n, m
+
 -- standard "terminal in the middle" split
 mover:bind('',      '1', function() resize_to(0,    23, 1160, 1440) end )
 mover:bind('shift', '1', function() resize_to(0,    23, 1040, 1440) end )
