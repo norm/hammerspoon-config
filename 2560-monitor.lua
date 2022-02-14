@@ -25,10 +25,8 @@ mover:bind('',      ']', function() resize_to(1281, 23, 1279, 1440) end )
 mover:bind('option','2', function() resize_to(1281, 23, 490,  1440) end )
 
 
--- youtube widths
-mover:bind('',      'y', function() resize_to(0,    23, 1604, 1440) end )
-mover:bind('shift', 'y', function() resize_to(0,    23, 2034, 1440) end )
-
+-- YouTube
+mover:bind('',      'y', function() resize_to(256,  23, 2048, 1440) end )
 
 -- where to place Things
 mover:bind('',      't', function() resize_to(252,  23, 908, 1440) end )
