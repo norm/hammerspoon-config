@@ -21,9 +21,11 @@ mover:bind('shift', '8', function() resize_to(10,   23, 1030, 1440) end )
 
 -- 7/10 split
 mover:bind('',      '[', function() resize_to(0,    23, 1280, 1440) end )
+mover:bind('shift', '[', function() resize_to(0,    23, 1100, 1440) end )
+mover:bind('cmd',   '[', function() resize_to(0,    23, 1459, 1440) end )
 mover:bind('',      ']', function() resize_to(1281, 23, 1279, 1440) end )
-mover:bind('option','2', function() resize_to(1281, 23, 490,  1440) end )
-
+mover:bind('shift', ']', function() resize_to(1460, 23, 1100, 1440) end )
+mover:bind('cmd',   ']', function() resize_to(1101, 23, 1460, 1440) end )
 
 -- YouTube
 mover:bind('',      'y', function() resize_to(256,  23, 2048, 1440) end )
