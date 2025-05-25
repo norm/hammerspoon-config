@@ -1,4 +1,4 @@
-require "mover"
+-- MacBook Air display
 
 -- standard "terminal in the middle" split
 mover:bind('',      '1', function() resize_to(0,    23, 875,  768) end )

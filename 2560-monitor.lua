@@ -1,4 +1,4 @@
-require "mover"
+-- 27" primary display
 
 -- reserved for laptop-only movement:
 -- z, x, c, v, b, n, m
