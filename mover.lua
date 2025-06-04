@@ -214,7 +214,7 @@ function resize_bottomright(w, h)
     -- no further than the edge of the screen
     frame.w = math.min(
         frame.w + w,
-        (screen.w - screen.x) - frame.x
+        (screen.x + screen.w) - frame.x
     )
     frame.h = math.min(
         frame.h + h,
