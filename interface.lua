@@ -44,6 +44,12 @@ function play_system_sound(sound_name)
 end
 
 
+function image_from_file(filename)
+    local image_path = icon_path(filename)
+    return hs.image.imageFromPath(image_path)
+end
+
+
 function composite_image_from_file(filename)
     -- takes both single filename and array of filenames
     local filenames = type(filename) == "table" and filename or {filename}
@@ -55,8 +61,7 @@ function composite_image_from_file(filename)
 
     -- Find the largest dimensions and layer each image on the canvas
     for _, fname in ipairs(filenames) do
-        local image_path = icon_path(fname)
-        local image = hs.image.imageFromPath(image_path)
+        local image = image_from_file(fname)
 
         if image then
             has_valid_image = true

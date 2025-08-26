@@ -62,9 +62,9 @@ function wiim_previous_button(closer)
         ['name'] = 'WiiM Previous Track',
         ['get_image'] = function(state)
             if not wiim_state.connected then
-                return button_image_from_file("disabled.png")
+                return image_from_elements({"disabled.png"})
             else
-                return button_image_from_file({"wiim.png", "overlay_previous.png"})
+                return image_from_elements({"wiim.png", "overlay_previous.png"})
             end
         end,
         ['pressed'] = function(state)
@@ -87,15 +87,15 @@ function wiim_playback_button()
         end,
         ['get_image'] = function(state)
             if not wiim_state.connected then
-                return button_image_from_file("disabled.png")
+                return image_from_elements({"disabled.png"})
             elseif wiim_state.player == "play" then
-                return button_image_from_file({"wiim.png", "overlay_play.png"})
+                return image_from_elements({"wiim.png", "overlay_play.png"})
             elseif wiim_state.player == "pause" then
-                return button_image_from_file({"wiim.png", "overlay_pause.png"})
+                return image_from_elements({"wiim.png", "overlay_pause.png"})
             end
 
             -- stopped for any other state
-            return button_image_from_file({"wiim.png", "overlay_stop.png"})
+            return image_from_elements({"wiim.png", "overlay_stop.png"})
         end,
         ['pressed'] = function(state)
             if not wiim_state.connected then return end
@@ -125,9 +125,9 @@ function wiim_next_button()
         ['name'] = 'WiiM Next Track',
         ['get_image'] = function(state)
             if not wiim_state.connected then
-                return button_image_from_file("disabled.png")
+                return image_from_elements({"disabled.png"})
             else
-                return button_image_from_file({"wiim.png", "overlay_next.png"})
+                return image_from_elements({"wiim.png", "overlay_next.png"})
             end
         end,
         ['pressed'] = function(state)
@@ -143,9 +143,9 @@ function wiim_volume_down_button()
         ['name'] = 'WiiM Volume Down',
         ['get_image'] = function(state)
             if not wiim_state.connected then
-                return button_image_from_file("disabled.png")
+                return image_from_elements({"disabled.png"})
             else
-                return button_image_from_file({"wiim.png", "overlay_quieter.png"})
+                return image_from_elements({"wiim.png", "overlay_quieter.png"})
             end
         end,
         ['pressed'] = function(state)
@@ -168,9 +168,9 @@ function wiim_volume_up_button()
         ['name'] = 'WiiM Volume Up',
         ['get_image'] = function(state)
             if not wiim_state.connected then
-                return button_image_from_file("disabled.png")
+                return image_from_elements({"disabled.png"})
             else
-                return button_image_from_file({"wiim.png", "overlay_louder.png"})
+                return image_from_elements({"wiim.png", "overlay_louder.png"})
             end
         end,
         ['pressed'] = function(state)
@@ -217,9 +217,9 @@ function overlay_wiim_playback_controls()
         end,
         ['get_image'] = function(state)
             if not wiim_state.connected then
-                return button_image_from_file("disabled.png")
+                return image_from_elements({"disabled.png"})
             else
-                return button_image_from_file({"wiim.png", "wiim_select.png"})
+                return image_from_elements({"wiim.png", "wiim_select.png"})
             end
         end,
         ['pressed'] = function(state)

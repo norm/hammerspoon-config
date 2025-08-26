@@ -12,9 +12,9 @@ function audio_mute_button()
         end,
         ['get_image'] = function(state)
             if state.muted then
-                return button_image_from_file({"status_ring.png", "audio_mute.png"})
+                return image_from_elements({"status_ring.png", "audio_mute.png"})
             else
-                return button_image_from_file({"status_ring.png", "audio_active.png"})
+                return image_from_elements({"status_ring.png", "audio_active.png"})
             end
         end,
         ['pressed'] = function(state)
@@ -45,9 +45,9 @@ function microphone_mute_button()
         end,
         ['get_image'] = function(state)
             if state.muted then
-                return button_image_from_file({"status_ring.png", "mic_mute.png"})
+                return image_from_elements({"status_ring.png", "mic_mute.png"})
             else
-                return button_image_from_file({"status_ring.png", "mic_active.png"})
+                return image_from_elements({"status_ring.png", "mic_active.png"})
             end
         end,
         ['pressed'] = function(state)
@@ -65,7 +65,7 @@ function volume_increase_button()
     return {
         ['name'] = 'Volume Up',
         ['get_image'] = function(state)
-            return button_image_from_file("louder.png")
+            return image_from_elements({"louder.png"})
         end,
         ['pressed'] = function(state)
             hs.eventtap.event.newSystemKeyEvent("SOUND_UP", true):post()
@@ -79,7 +79,7 @@ function volume_decrease_button()
     return {
         ['name'] = 'Volume Down',
         ['get_image'] = function(state)
-            return button_image_from_file("quieter.png")
+            return image_from_elements({"quieter.png"})
         end,
         ['pressed'] = function(state)
             hs.eventtap.event.newSystemKeyEvent("SOUND_DOWN", true):post()
@@ -93,7 +93,7 @@ function play_pause_button()
     return {
         ['name'] = 'Play/Pause',
         ['get_image'] = function(state)
-            return button_image_from_file("play_pause.png")
+            return image_from_elements({"play_pause.png"})
         end,
         ['pressed'] = function(state)
             hs.eventtap.event.newSystemKeyEvent("PLAY", true):post()
@@ -106,7 +106,7 @@ function previous_track_button()
     return {
         ['name'] = 'Previous Track',
         ['get_image'] = function(state)
-            return button_image_from_file("play_previous.png")
+            return image_from_elements({"play_previous.png"})
         end,
         ['pressed'] = function(state)
             hs.eventtap.event.newSystemKeyEvent("PREVIOUS", true):post()
@@ -119,7 +119,7 @@ function next_track_button()
     return {
         ['name'] = 'Next Track',
         ['get_image'] = function(state)
-            return button_image_from_file("play_next.png")
+            return image_from_elements({"play_next.png"})
         end,
         ['pressed'] = function(state)
             hs.eventtap.event.newSystemKeyEvent("NEXT", true):post()
@@ -132,7 +132,7 @@ end
 function overlay_mac_playback_controls()
     return {
         ['name'] = 'Mac Playback Controls Overlay',
-        ['image'] = button_image_from_file({"mac.png", "mac_select.png"}),
+        ['image'] = image_from_elements({"mac.png", "mac_select.png"}),
         ['pressed'] = function(state)
             stream_deck_create_panel_overlay(
                 "Mac Playback Controls",

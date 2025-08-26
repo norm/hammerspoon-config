@@ -26,7 +26,7 @@ function example_button()
         end,
         ['image'] = function()
             -- if the button has a static image
-            return button_image_from_file({'mac.png', 'mac_select.png'})
+            return image_from_elements({'mac.png', 'mac_select.png'})
         end,
         ['get_image'] = function(state)
             -- if the button has a dynamic image that changes based on state

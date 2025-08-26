@@ -75,12 +75,12 @@ function stream_deck_lock()
             if button_index == 8 then
                 current_stream_deck:setButtonImage(
                     button_index,
-                    button_image_from_file({"dark purple", "locked.png"})
+                    image_from_elements({"dark purple", "locked.png"})
                 )
             else
                 current_stream_deck:setButtonImage(
                     button_index,
-                    create_solid_colour("dark purple")
+                    solid_colour_fill("dark purple")
                 )
             end
         end
