@@ -107,3 +107,25 @@ function stream_deck_unlock()
         current_stream_deck:setBrightness(stream_deck_brightness)
     end
 end
+
+
+hs.shutdownCallback = function()
+    if current_stream_deck ~= nil then
+        console_debug('stream_deck:shutdown', 'Setting shutdown display')
+        stream_deck_stop_button_loop()
+
+        for button_index = 1, 15 do
+            if button_index == 8 then
+                current_stream_deck:setButtonImage(
+                    button_index,
+                    image_from_elements({"black", "disabled.png"})
+                )
+            else
+                current_stream_deck:setButtonImage(
+                    button_index,
+                    solid_colour_fill("black")
+                )
+            end
+        end
+    end
+end
