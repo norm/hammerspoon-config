@@ -3,6 +3,11 @@
 My [hammerspoon](http://www.hammerspoon.org) configuration.
 Feel free to borrow/steal.
 
+## Stream Deck controls
+
+See the [README in the stream_deck directory](stream_deck/README.md).
+
+
 ## mover.lua
 
 A Hammerspoon script to move/resize windows purely from the keyboard, as a
@@ -73,3 +78,4 @@ height)` as shown.
 You could create "left-half" and "right-half" sizes for your main display, for
 example. I like to have keys that place my text editor, terminal window, and
 web browser to fill my display without gaps.
+

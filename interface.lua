@@ -129,3 +129,21 @@ function notification_icon(icon_names)
         )
     end
 end
+
+
+function get_audio_mute_state()
+    local output_device = hs.audiodevice.defaultOutputDevice()
+    if output_device then
+        return output_device:outputMuted()
+    end
+    return false
+end
+
+
+function get_microphone_mute_state()
+    local input_device = hs.audiodevice.defaultInputDevice()
+    if input_device then
+        return input_device:inputMuted()
+    end
+    return false
+end
