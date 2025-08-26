@@ -7,6 +7,8 @@ require "stream_deck"
 require "stream_deck.antirsi"
 require "stream_deck.audio"
 require "stream_deck.elgato_key_light"
+require "stream_deck.list_step"
+require "stream_deck.homekit"
 require "stream_deck.timer"
 require "stream_deck.wiim"
 
@@ -29,6 +31,28 @@ home_buttons[10] = microphone_mute_button()
 home_buttons[11] = timer_button()
 home_buttons[13] = antirsi_button()
 home_buttons[14] = elgato_key_light_button()
+home_buttons[15] = list_step_button(
+    "Video Conference",
+    {"video_conf_off.png"},
+    {
+        {
+            name = "Video Conference",
+            image = {"video_conf_on.png"},
+            callback = function()
+                set_homekit_scene("Video Conference")
+                elgato_key_light_on()
+            end
+        },
+        {
+            name = "Study Normal",
+            image = {"video_conf_off.png"},
+            callback = function()
+                set_homekit_scene("Study Medium")
+                elgato_key_light_off()
+            end
+        },
+    }
+)
 
 on_stream_deck_ready(function(deck)
     stream_deck_home_panel(stream_deck_create_panel(home_buttons))
