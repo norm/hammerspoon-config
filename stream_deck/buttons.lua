@@ -4,6 +4,7 @@ local stream_deck_panel_stack = {}
 local stream_deck_active_buttons = {}
 local stream_deck_button_loop_timer = nil
 local stream_deck_button_loop_counter = 0
+countdown_maximum_radius = 33
 
 
 local function copy_button_state(t)
@@ -280,7 +281,7 @@ function stream_deck_button_pressed(deck, position, pressed)
 end
 
 
-local function tables_equal(a, b)
+function tables_equal(a, b)
     if type(a) ~= "table" or type(b) ~= "table" then return a == b end
     for k, v in pairs(a) do
         if not tables_equal(v, b[k]) then return false end
@@ -441,7 +442,7 @@ function create_countdown_canvas(progress, colour, radius)
             type = "arc",
             action = "fill",
             center = { x = 48, y = 48 },
-            radius = radius or 33,
+            radius = radius or countdown_maximum_radius,
             startAngle = 0,
             endAngle = 360 * progress,
             fillColor = colour

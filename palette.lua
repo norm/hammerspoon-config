@@ -28,6 +28,16 @@ palette_norman = {
 }
 
 
+timer_colours = {
+    'Pomodoro',
+    'Roti',
+    'Limed Spruce',
+    'Kimberly',
+    'Cosmic',
+    'Opal',
+}
+
+
 for _, entry in ipairs(palette_norman) do
     if entry.hex then
         local colour = hex_to_hammerspoon_colour(entry.hex)
