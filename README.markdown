@@ -7,6 +7,8 @@ Feel free to borrow/steal.
 
 See the [README in the stream_deck directory](stream_deck/README.md).
 
+![A photo of my Stream Deck showing my button configuration](deck.jpg)
+
 
 ## mover.lua
 
