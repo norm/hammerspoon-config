@@ -3,6 +3,8 @@
 local notification_duration = 2
 local notification_canvas = nil
 local notification_timer = nil
+local volume_canvas = nil
+local volume_timer = nil
 
 
 function icon_path(filename)
@@ -128,6 +130,84 @@ function notification_icon(icon_names)
             end
         )
     end
+end
+
+
+function show_volume_bar(volume, icon_names, bar_color)
+    local screen_frame = screen_frame()
+    local bar_width = 600
+    local bar_height = 40
+
+    if volume_timer then
+        volume_timer:stop()
+        volume_timer = nil
+    end
+    if volume_canvas then
+        volume_canvas:delete()
+    end
+
+    local icon_image = composite_image_from_file(icon_names)
+    local icon_height = icon_image and icon_image:size().h or 128
+    volume_canvas = hs.canvas.new({
+        x = (screen_frame.w - bar_width) / 2,
+        y = screen_frame.h * 0.8 - icon_height - 10,
+        w = bar_width,
+        h = bar_height + icon_height + 10
+    })
+
+    -- bar background
+    volume_canvas[1] = {
+        type = "rectangle",
+        action = "fill",
+        frame = {
+            x = 0,
+            y = icon_height + 10,
+            w = bar_width,
+            h = bar_height
+        },
+        fillColor = { red = 0.2, green = 0.2, blue = 0.2, alpha = 0.8 },
+        roundedRectRadii = { xRadius = 10, yRadius = 10 }
+    }
+
+    -- bar progress
+    volume_canvas[2] = {
+        type = "rectangle",
+        action = "fill",
+        frame = {
+            x = 2,
+            y = icon_height + 12,
+            w = (volume / 100) * (bar_width - 4),
+            h = bar_height - 4
+        },
+        fillColor = bar_color,
+        roundedRectRadii = { xRadius = 8, yRadius = 8 }
+    }
+
+    if icon_image then
+        local icon_size = icon_image:size()
+        volume_canvas[3] = {
+            type = "image",
+            image = icon_image,
+            frame = {
+                x = (bar_width - icon_size.w) / 2,
+                y = 0,
+                w = icon_size.w,
+                h = icon_size.h
+            }
+        }
+    end
+
+    volume_canvas:show()
+    volume_timer = hs.timer.doAfter(
+        notification_duration,
+        function()
+            if volume_canvas then
+                volume_canvas:delete()
+                volume_canvas = nil
+            end
+            volume_timer = nil
+        end
+    )
 end
 
 
