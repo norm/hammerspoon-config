@@ -74,6 +74,46 @@ is still called, but the button will not be redrawn. This is useful if a
 button needs to countdown a timer, for example.
 
 
+## Button images
+
+Button images can be a solid colour, PNGs (automatically resized),
+programmatically rendered images, and text, all capable of being combined to
+create composite images.
+
+Helper functions:
+
+- `image_from_elements` -- produce the final button image from multiple
+  sources overlaid:
+
+    ```lua
+    return image_from_elements({'mac.png', 'mac_select.png'})
+    ```
+
+    The sources can be:
+
+    - images (with a relative filename, expected to be in the `icons/`
+      directory)
+    - solid colours, named ("purple") or CSS-like hex values ("#f90",
+      "#fcb85523")
+    - canvases
+
+- `create_countdown_canvas` -- creates a circular pie-chart-like
+  countdown fill
+
+    ```lua
+    create_countdown_canvas(
+        0.3,                        -- progress (1=none, 0=complete)
+        hammerspoon_colour("red"),  -- fill colour
+        30                          -- radius (pixels)
+    )
+    ```
+
+- `solid_colour_fill` -- creates an image that's just one colour (also used
+  by `image_from_elements` if your argument is a colour/hex)
+- `create_button_from_text` -- returns a skeleton button object, using
+  the default background fill colour and text, theoretically resized to fit
+
+
 ## Visual patterns
 
 A button is a control, but it can also be a status indicator. Where the button
