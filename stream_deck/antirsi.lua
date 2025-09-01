@@ -74,7 +74,9 @@ function antirsi_button()
         end,
         ['get_image'] = function(state)
             if antirsi_state.active then
-                return image_from_elements({"status_ring.png", "overlay_keyboard_watch.png"})
+                return image_from_elements(
+                    {"status_ring.png", "overlay_keyboard_watch.png"}
+                )
             else
                 local elements = {
                     [1] = "status_ring.png",
@@ -83,7 +85,7 @@ function antirsi_button()
                                 1,
                                 math.max(
                                     0,
-                                    state.remaining / (state.end_time - state.start_time)
+                                    state.remaining / (state.end_time-state.start_time)
                                 )
                             ),
                             hex_to_hammerspoon_colour('#333333')

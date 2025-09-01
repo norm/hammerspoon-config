@@ -21,7 +21,11 @@ function send_wiim_command(command)
             ))
             play_system_sound("Sosumi")
         end
-    end, {'-k', '-s', 'https://' .. wiim_ip .. '/httpapi.asp?command=setPlayerCmd:' .. command}):start()
+    end, {
+        '-k',
+        '-s',
+        'https://' .. wiim_ip .. '/httpapi.asp?command=setPlayerCmd:' .. command
+    }):start()
 end
 
 
@@ -46,7 +50,11 @@ function get_wiim_status()
         end
         stream_deck_update_button_state('WiiM Play/Pause', wiim_state)
         stream_deck_update_button_state('WiiM Playback Controls Overlay', wiim_state)
-    end, {'-k', '-s', 'https://' .. wiim_ip .. '/httpapi.asp?command=getPlayerStatus'}):start()
+    end, {
+        '-k',
+        '-s',
+        'https://' .. wiim_ip .. '/httpapi.asp?command=getPlayerStatus'
+    }):start()
 end
 
 
