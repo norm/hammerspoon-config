@@ -108,7 +108,7 @@ function notification_icon(icon_names)
         local screen_frame = screen_frame()
         local icon_size = icon_image:size()
         local canvas_x = (screen_frame.w - icon_size.w) / 2
-        local canvas_y = (screen_frame.h - icon_size.h) / 2
+        local canvas_y = screen_frame.h * 0.8 - icon_size.h - 10
 
         notification_canvas = hs.canvas.new({
             x = canvas_x,

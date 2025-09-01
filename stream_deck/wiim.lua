@@ -69,6 +69,9 @@ function wiim_previous_button(closer)
         end,
         ['pressed'] = function(state)
             if not wiim_state.connected then return end
+            notification_icon(
+                {"wiim_background.png", "wiim.png", "overlay_previous.png"}
+            )
             send_wiim_command("prev")
         end,
         ['held'] = held_action
@@ -102,8 +105,14 @@ function wiim_playback_button()
 
             if wiim_state.player == "play" then
                 wiim_state.player = "pause"
+                notification_icon(
+                    {"wiim_background.png", "wiim.png", "overlay_pause.png"}
+                )
             else
                 wiim_state.player = "play"
+                notification_icon(
+                    {"wiim_background.png", "wiim.png", "overlay_play.png"}
+                )
             end
             stream_deck_update_button_state('WiiM Play/Pause', wiim_state)
             send_wiim_command(wiim_state.player)
@@ -112,6 +121,7 @@ function wiim_playback_button()
             if not wiim_state.connected then return end
 
             wiim_state.player = "stop"
+            notification_icon({"wiim_background.png", "wiim.png", "overlay_stop.png"})
             stream_deck_update_button_state('WiiM Play/Pause', wiim_state)
             send_wiim_command(wiim_state.player)
         end,
@@ -132,6 +142,7 @@ function wiim_next_button()
         end,
         ['pressed'] = function(state)
             if not wiim_state.connected then return end
+            notification_icon({"wiim_background.png", "wiim.png", "overlay_next.png"})
             send_wiim_command("next")
         end
     }
@@ -154,7 +165,7 @@ function wiim_volume_down_button()
             wiim_state.volume = math.max(0, wiim_state.volume - 5)
             show_volume_bar(
                 wiim_state.volume,
-                {"wiim.png", "overlay_quieter.png"},
+                {"wiim_background.png", "wiim.png", "overlay_quieter.png"},
                 hex_to_hammerspoon_colour('#59adc4')
             )
             send_wiim_command("vol:" .. wiim_state.volume)
@@ -179,7 +190,7 @@ function wiim_volume_up_button()
             wiim_state.volume = math.min(100, wiim_state.volume + 5)
             show_volume_bar(
                 wiim_state.volume,
-                {"wiim.png", "overlay_louder.png"},
+                {"wiim_background.png", "wiim.png", "overlay_louder.png"},
                 hex_to_hammerspoon_colour('#59adc4')
             )
             send_wiim_command("vol:" .. wiim_state.volume)
